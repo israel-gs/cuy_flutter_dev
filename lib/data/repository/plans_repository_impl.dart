@@ -13,9 +13,12 @@ abstract class PlansRepositoryImpl implements PlansRepository {
   PlansRepositoryImpl(this._remoteDataSource);
 
   @override
-  Future<Either<Failure, PlansEntity>> getActivePlans() async {
+  Future<Either<Failure, PlansEntity>> getActivePlans({
+    required String authorization,
+  }) async {
     try {
       final response = await _remoteDataSource.getActivePlans(
+        authorization: authorization,
         sort: 'ASC',
         isActive: true,
       );

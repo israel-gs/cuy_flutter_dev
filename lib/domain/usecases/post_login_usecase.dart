@@ -9,10 +9,12 @@ class PostLoginUseCase {
   PostLoginUseCase(this._loginRepository);
 
   Future<Either<Failure, LoginEntity>> call({
+    required String authorization,
     required String emailOrPhone,
     required String password,
   }) async {
     return await _loginRepository.login(
+      authorization: authorization,
       emailOrPhone: emailOrPhone,
       password: password,
     );

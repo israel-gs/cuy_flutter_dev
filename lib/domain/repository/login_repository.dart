@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 
 abstract class LoginRepository {
   Future<Either<Failure, LoginEntity>> login({
+    required String authorization,
     required String emailOrPhone,
     required String password,
   });

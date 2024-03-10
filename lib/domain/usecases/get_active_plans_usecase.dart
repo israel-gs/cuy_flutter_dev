@@ -8,7 +8,11 @@ class GetActivePlansUseCase {
 
   GetActivePlansUseCase(this._plansRepository);
 
-  Future<Either<Failure, PlansEntity>> call() async {
-    return await _plansRepository.getActivePlans();
+  Future<Either<Failure, PlansEntity>> call({
+    required String authorization,
+  }) async {
+    return await _plansRepository.getActivePlans(
+      authorization: authorization,
+    );
   }
 }

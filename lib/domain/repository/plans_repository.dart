@@ -3,5 +3,7 @@ import 'package:cuy_flutter_dev/domain/entities/plans_entity.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class PlansRepository {
-  Future<Either<Failure, PlansEntity>> getActivePlans();
+  Future<Either<Failure, PlansEntity>> getActivePlans({
+    required String authorization,
+  });
 }

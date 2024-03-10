@@ -15,6 +15,7 @@ abstract class LoginRepositoryImpl implements LoginRepository {
 
   @override
   Future<Either<Failure, LoginEntity>> login({
+    required String authorization,
     required String emailOrPhone,
     required String password,
   }) async {
@@ -23,7 +24,8 @@ abstract class LoginRepositoryImpl implements LoginRepository {
         emailOrPhone: emailOrPhone,
         password: password,
       );
-      final response = await _remoteDataSource.login(loginRequestModel);
+      final response =
+          await _remoteDataSource.login(authorization, loginRequestModel);
 
       if (response.response.statusCode == HttpStatus.ok) {
         return Right(response.data);

@@ -51,10 +51,13 @@ class _RemoteDataSource implements RemoteDataSource {
 
   @override
   Future<HttpResponse<LoginModel>> login(
-      LoginRequestModel loginRequestModel) async {
+    String authorization,
+    LoginRequestModel loginRequestModel,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': authorization};
+    _headers.removeWhere((k, v) => v == null);
     final _data = loginRequestModel;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<LoginModel>>(Options(
@@ -80,6 +83,7 @@ class _RemoteDataSource implements RemoteDataSource {
 
   @override
   Future<HttpResponse<PlansModel>> getActivePlans({
+    required String authorization,
     required String sort,
     required bool isActive,
   }) async {
@@ -88,7 +92,8 @@ class _RemoteDataSource implements RemoteDataSource {
       r'sort': sort,
       r'isActive': isActive,
     };
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': authorization};
+    _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<HttpResponse<PlansModel>>(Options(
