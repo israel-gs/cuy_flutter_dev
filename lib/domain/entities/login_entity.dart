@@ -6,7 +6,7 @@ class LoginEntity extends Equatable {
   final String? message;
   final String? oauthToken;
   final int? oauthTokenExpiresAt;
-  final Data? data;
+  final DataEntity? data;
 
   const LoginEntity({
     this.code,
@@ -28,7 +28,7 @@ class LoginEntity extends Equatable {
       ];
 }
 
-class Data {
+class DataEntity {
   final int? id;
   final String? name;
   final String? lastNameFather;
@@ -51,9 +51,8 @@ class Data {
   final String? region;
   final bool? isTourist;
   final int? whiteBrand;
-  final Company? company;
 
-  Data({
+  const DataEntity({
     this.id,
     this.name,
     this.lastNameFather,
@@ -76,30 +75,5 @@ class Data {
     this.region,
     this.isTourist,
     this.whiteBrand,
-    this.company,
-  });
-}
-
-class Company {
-  final int? id;
-  final String? ruc;
-  final String? businessName;
-  final Role? role;
-
-  Company({
-    this.id,
-    this.ruc,
-    this.businessName,
-    this.role,
-  });
-}
-
-class Role {
-  final int? id;
-  final String? name;
-
-  Role({
-    this.id,
-    this.name,
   });
 }

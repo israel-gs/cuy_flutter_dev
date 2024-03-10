@@ -4,7 +4,7 @@ class PlansEntity extends Equatable {
   final String? code;
   final String? status;
   final String? message;
-  final List<ListElement>? list;
+  final List<ListElementEntity>? list;
   final List<dynamic>? appListFree;
 
   const PlansEntity({
@@ -25,7 +25,7 @@ class PlansEntity extends Equatable {
       ];
 }
 
-class ListElement {
+class ListElementEntity {
   final int? id;
   final String? bundleId;
   final String? name;
@@ -62,12 +62,11 @@ class ListElement {
   final String? bundleIds;
   final String? mediumSpeed;
   final String? mediumSpeedDescription;
-  final BundleType? bundleType;
   final int? whiteBrand;
   final List<dynamic>? freeApps;
   final List<dynamic>? migrations;
 
-  ListElement({
+  const ListElementEntity({
     this.id,
     this.bundleId,
     this.name,
@@ -104,19 +103,8 @@ class ListElement {
     this.bundleIds,
     this.mediumSpeed,
     this.mediumSpeedDescription,
-    this.bundleType,
     this.whiteBrand,
     this.freeApps,
     this.migrations,
-  });
-}
-
-class BundleType {
-  final int? id;
-  final String? name;
-
-  BundleType({
-    this.id,
-    this.name,
   });
 }
