@@ -3,19 +3,28 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i5;
 
-import 'package:cuy_flutter_dev/core/error/failure.dart' as _i5;
-import 'package:cuy_flutter_dev/domain/entities/auth_entity.dart' as _i6;
-import 'package:cuy_flutter_dev/domain/entities/login_entity.dart' as _i8;
-import 'package:cuy_flutter_dev/domain/entities/plans_entity.dart' as _i10;
-import 'package:cuy_flutter_dev/domain/repository/auth_repository.dart' as _i3;
-import 'package:cuy_flutter_dev/domain/repository/login_repository.dart' as _i7;
-import 'package:cuy_flutter_dev/domain/repository/plans_repository.dart' as _i9;
+import 'package:cuy_flutter_dev/core/error/failure.dart' as _i6;
+import 'package:cuy_flutter_dev/data/data_sources/remote_data_source.dart'
+    as _i13;
+import 'package:cuy_flutter_dev/data/models/auth_model.dart' as _i14;
+import 'package:cuy_flutter_dev/data/models/auth_request_model.dart' as _i15;
+import 'package:cuy_flutter_dev/data/models/login_model.dart' as _i16;
+import 'package:cuy_flutter_dev/data/models/login_request_model.dart' as _i17;
+import 'package:cuy_flutter_dev/data/models/plans_model.dart' as _i18;
+import 'package:cuy_flutter_dev/domain/entities/auth_entity.dart' as _i7;
+import 'package:cuy_flutter_dev/domain/entities/login_entity.dart' as _i9;
+import 'package:cuy_flutter_dev/domain/entities/plans_entity.dart' as _i11;
+import 'package:cuy_flutter_dev/domain/repository/auth_repository.dart' as _i4;
+import 'package:cuy_flutter_dev/domain/repository/login_repository.dart' as _i8;
+import 'package:cuy_flutter_dev/domain/repository/plans_repository.dart'
+    as _i10;
 import 'package:cuy_flutter_dev/domain/repository/token_repository.dart'
-    as _i11;
+    as _i12;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:retrofit/retrofit.dart' as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -40,16 +49,27 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
         );
 }
 
+class _FakeHttpResponse_1<T> extends _i1.SmartFake
+    implements _i3.HttpResponse<T> {
+  _FakeHttpResponse_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AuthRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
+class MockAuthRepository extends _i1.Mock implements _i4.AuthRepository {
   MockAuthRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.AuthEntity>> auth({
+  _i5.Future<_i2.Either<_i6.Failure, _i7.AuthEntity>> auth({
     required String? email,
     required String? password,
   }) =>
@@ -62,8 +82,8 @@ class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
             #password: password,
           },
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.AuthEntity>>.value(
-            _FakeEither_0<_i5.Failure, _i6.AuthEntity>(
+        returnValue: _i5.Future<_i2.Either<_i6.Failure, _i7.AuthEntity>>.value(
+            _FakeEither_0<_i6.Failure, _i7.AuthEntity>(
           this,
           Invocation.method(
             #auth,
@@ -74,19 +94,19 @@ class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
             },
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.AuthEntity>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, _i7.AuthEntity>>);
 }
 
 /// A class which mocks [LoginRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLoginRepository extends _i1.Mock implements _i7.LoginRepository {
+class MockLoginRepository extends _i1.Mock implements _i8.LoginRepository {
   MockLoginRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i8.LoginEntity>> login({
+  _i5.Future<_i2.Either<_i6.Failure, _i9.LoginEntity>> login({
     required String? authorization,
     required String? emailOrPhone,
     required String? password,
@@ -101,8 +121,8 @@ class MockLoginRepository extends _i1.Mock implements _i7.LoginRepository {
             #password: password,
           },
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i8.LoginEntity>>.value(
-            _FakeEither_0<_i5.Failure, _i8.LoginEntity>(
+        returnValue: _i5.Future<_i2.Either<_i6.Failure, _i9.LoginEntity>>.value(
+            _FakeEither_0<_i6.Failure, _i9.LoginEntity>(
           this,
           Invocation.method(
             #login,
@@ -114,19 +134,19 @@ class MockLoginRepository extends _i1.Mock implements _i7.LoginRepository {
             },
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, _i8.LoginEntity>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, _i9.LoginEntity>>);
 }
 
 /// A class which mocks [PlansRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPlansRepository extends _i1.Mock implements _i9.PlansRepository {
+class MockPlansRepository extends _i1.Mock implements _i10.PlansRepository {
   MockPlansRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i10.PlansEntity>> getActivePlans(
+  _i5.Future<_i2.Either<_i6.Failure, _i11.PlansEntity>> getActivePlans(
           {required String? authorization}) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -135,8 +155,8 @@ class MockPlansRepository extends _i1.Mock implements _i9.PlansRepository {
           {#authorization: authorization},
         ),
         returnValue:
-            _i4.Future<_i2.Either<_i5.Failure, _i10.PlansEntity>>.value(
-                _FakeEither_0<_i5.Failure, _i10.PlansEntity>(
+            _i5.Future<_i2.Either<_i6.Failure, _i11.PlansEntity>>.value(
+                _FakeEither_0<_i6.Failure, _i11.PlansEntity>(
           this,
           Invocation.method(
             #getActivePlans,
@@ -144,33 +164,148 @@ class MockPlansRepository extends _i1.Mock implements _i9.PlansRepository {
             {#authorization: authorization},
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, _i10.PlansEntity>>);
+      ) as _i5.Future<_i2.Either<_i6.Failure, _i11.PlansEntity>>);
 }
 
 /// A class which mocks [TokenRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTokenRepository extends _i1.Mock implements _i11.TokenRepository {
+class MockTokenRepository extends _i1.Mock implements _i12.TokenRepository {
   MockTokenRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<String?> getToken() => (super.noSuchMethod(
+  _i5.Future<String?> getToken() => (super.noSuchMethod(
         Invocation.method(
           #getToken,
           [],
         ),
-        returnValue: _i4.Future<String?>.value(),
-      ) as _i4.Future<String?>);
+        returnValue: _i5.Future<String?>.value(),
+      ) as _i5.Future<String?>);
 
   @override
-  _i4.Future<void> saveToken(String? token) => (super.noSuchMethod(
+  _i5.Future<void> saveToken(String? token) => (super.noSuchMethod(
         Invocation.method(
           #saveToken,
           [token],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+}
+
+/// A class which mocks [RemoteDataSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
+  @override
+  _i5.Future<_i3.HttpResponse<_i14.AuthModel>> auth(
+          _i15.AuthRequestModel? authRequestModel) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #auth,
+          [authRequestModel],
+        ),
+        returnValue: _i5.Future<_i3.HttpResponse<_i14.AuthModel>>.value(
+            _FakeHttpResponse_1<_i14.AuthModel>(
+          this,
+          Invocation.method(
+            #auth,
+            [authRequestModel],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i5.Future<_i3.HttpResponse<_i14.AuthModel>>.value(
+                _FakeHttpResponse_1<_i14.AuthModel>(
+          this,
+          Invocation.method(
+            #auth,
+            [authRequestModel],
+          ),
+        )),
+      ) as _i5.Future<_i3.HttpResponse<_i14.AuthModel>>);
+
+  @override
+  _i5.Future<_i3.HttpResponse<_i16.LoginModel>> login(
+    String? authorization,
+    _i17.LoginRequestModel? loginRequestModel,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #login,
+          [
+            authorization,
+            loginRequestModel,
+          ],
+        ),
+        returnValue: _i5.Future<_i3.HttpResponse<_i16.LoginModel>>.value(
+            _FakeHttpResponse_1<_i16.LoginModel>(
+          this,
+          Invocation.method(
+            #login,
+            [
+              authorization,
+              loginRequestModel,
+            ],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i5.Future<_i3.HttpResponse<_i16.LoginModel>>.value(
+                _FakeHttpResponse_1<_i16.LoginModel>(
+          this,
+          Invocation.method(
+            #login,
+            [
+              authorization,
+              loginRequestModel,
+            ],
+          ),
+        )),
+      ) as _i5.Future<_i3.HttpResponse<_i16.LoginModel>>);
+
+  @override
+  _i5.Future<_i3.HttpResponse<_i18.PlansModel>> getActivePlans({
+    required String? authorization,
+    required String? sort,
+    required bool? isActive,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getActivePlans,
+          [],
+          {
+            #authorization: authorization,
+            #sort: sort,
+            #isActive: isActive,
+          },
+        ),
+        returnValue: _i5.Future<_i3.HttpResponse<_i18.PlansModel>>.value(
+            _FakeHttpResponse_1<_i18.PlansModel>(
+          this,
+          Invocation.method(
+            #getActivePlans,
+            [],
+            {
+              #authorization: authorization,
+              #sort: sort,
+              #isActive: isActive,
+            },
+          ),
+        )),
+        returnValueForMissingStub:
+            _i5.Future<_i3.HttpResponse<_i18.PlansModel>>.value(
+                _FakeHttpResponse_1<_i18.PlansModel>(
+          this,
+          Invocation.method(
+            #getActivePlans,
+            [],
+            {
+              #authorization: authorization,
+              #sort: sort,
+              #isActive: isActive,
+            },
+          ),
+        )),
+      ) as _i5.Future<_i3.HttpResponse<_i18.PlansModel>>);
 }
