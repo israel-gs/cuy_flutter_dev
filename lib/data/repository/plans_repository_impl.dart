@@ -24,7 +24,7 @@ class PlansRepositoryImpl implements PlansRepository {
       );
 
       if (response.response.statusCode == HttpStatus.ok) {
-        return Right(response.data);
+        return Right(response.data.toEntity());
       } else {
         return Left(
           ServerFailure(

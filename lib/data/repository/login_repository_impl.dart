@@ -28,7 +28,7 @@ class LoginRepositoryImpl implements LoginRepository {
           await _remoteDataSource.login(authorization, loginRequestModel);
 
       if (response.response.statusCode == HttpStatus.ok) {
-        return Right(response.data);
+        return Right(response.data.toEntity());
       } else {
         return Left(
           ServerFailure(
