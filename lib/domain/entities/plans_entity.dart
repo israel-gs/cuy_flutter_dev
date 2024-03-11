@@ -1,18 +1,18 @@
 import 'package:equatable/equatable.dart';
 
 class PlansEntity extends Equatable {
-  final String? code;
-  final String? status;
-  final String? message;
-  final List<ListElementEntity>? list;
-  final List<dynamic>? appListFree;
+  final String code;
+  final String status;
+  final String message;
+  final List<ListElementEntity> list;
+  final List<dynamic> appListFree;
 
   const PlansEntity({
-    this.code,
-    this.status,
-    this.message,
-    this.list,
-    this.appListFree,
+    required this.code,
+    required this.status,
+    required this.message,
+    required this.list,
+    required this.appListFree,
   });
 
   @override
@@ -25,86 +25,129 @@ class PlansEntity extends Equatable {
       ];
 }
 
-class ListElementEntity {
-  final int? id;
-  final String? bundleId;
-  final String? name;
-  final String? description;
-  final double? quantity;
+class ListElementEntity extends Equatable {
+  final num id;
+  final String bundleId;
+  final String name;
+  final String description;
+  final num quantity;
   final dynamic quantityReal;
-  final double? price;
-  final int? duration;
-  final bool? isSelected;
-  final bool? isUnlimited;
-  final String? pricePlanId;
-  final bool? isPopular;
-  final bool? isRecommended;
-  final bool? repurchase;
-  final bool? isRollover;
-  final String? name2;
-  final String? name3;
-  final bool? hasFreeApps;
-  final bool? hasFacebookFull;
-  final bool? hasInstagramFull;
-  final bool? hasFacebookPhoto;
-  final bool? hasInstagramPhoto;
-  final String? facebookFullDesc;
-  final String? groupName;
-  final String? nameByte;
-  final String? nameSecond;
-  final String? nameSms;
-  final bool? isUnlimitedByte;
-  final bool? isUnlimitedSecond;
-  final bool? isUnlimitedSms;
-  final int? quantityByte;
-  final int? quantitySecond;
-  final int? quantitySms;
-  final String? bundleIds;
-  final String? mediumSpeed;
-  final String? mediumSpeedDescription;
-  final int? whiteBrand;
-  final List<dynamic>? freeApps;
-  final List<dynamic>? migrations;
+  final num price;
+  final num duration;
+  final bool isSelected;
+  final bool isUnlimited;
+  final String pricePlanId;
+  final bool isPopular;
+  final bool isRecommended;
+  final bool repurchase;
+  final bool isRollover;
+  final String name2;
+  final String name3;
+  final bool hasFreeApps;
+  final bool hasFacebookFull;
+  final bool hasInstagramFull;
+  final bool hasFacebookPhoto;
+  final bool hasInstagramPhoto;
+  final String facebookFullDesc;
+  final String groupName;
+  final String nameByte;
+  final String nameSecond;
+  final String nameSms;
+  final bool isUnlimitedByte;
+  final bool isUnlimitedSecond;
+  final bool isUnlimitedSms;
+  final int quantityByte;
+  final int quantitySecond;
+  final int quantitySms;
+  final String bundleIds;
+  final String mediumSpeed;
+  final String mediumSpeedDescription;
+  final int whiteBrand;
+  final List<dynamic> freeApps;
+  final List<dynamic> migrations;
 
   const ListElementEntity({
-    this.id,
-    this.bundleId,
-    this.name,
-    this.description,
-    this.quantity,
-    this.quantityReal,
-    this.price,
-    this.duration,
-    this.isSelected,
-    this.isUnlimited,
-    this.pricePlanId,
-    this.isPopular,
-    this.isRecommended,
-    this.repurchase,
-    this.isRollover,
-    this.name2,
-    this.name3,
-    this.hasFreeApps,
-    this.hasFacebookFull,
-    this.hasInstagramFull,
-    this.hasFacebookPhoto,
-    this.hasInstagramPhoto,
-    this.facebookFullDesc,
-    this.groupName,
-    this.nameByte,
-    this.nameSecond,
-    this.nameSms,
-    this.isUnlimitedByte,
-    this.isUnlimitedSecond,
-    this.isUnlimitedSms,
-    this.quantityByte,
-    this.quantitySecond,
-    this.quantitySms,
-    this.bundleIds,
-    this.mediumSpeed,
-    this.mediumSpeedDescription,
-    this.whiteBrand,
-    this.freeApps,
-    this.migrations,
+    required this.id,
+    required this.bundleId,
+    required this.name,
+    required this.description,
+    required this.quantity,
+    required this.quantityReal,
+    required this.price,
+    required this.duration,
+    required this.isSelected,
+    required this.isUnlimited,
+    required this.pricePlanId,
+    required this.isPopular,
+    required this.isRecommended,
+    required this.repurchase,
+    required this.isRollover,
+    required this.name2,
+    required this.name3,
+    required this.hasFreeApps,
+    required this.hasFacebookFull,
+    required this.hasInstagramFull,
+    required this.hasFacebookPhoto,
+    required this.hasInstagramPhoto,
+    required this.facebookFullDesc,
+    required this.groupName,
+    required this.nameByte,
+    required this.nameSecond,
+    required this.nameSms,
+    required this.isUnlimitedByte,
+    required this.isUnlimitedSecond,
+    required this.isUnlimitedSms,
+    required this.quantityByte,
+    required this.quantitySecond,
+    required this.quantitySms,
+    required this.bundleIds,
+    required this.mediumSpeed,
+    required this.mediumSpeedDescription,
+    required this.whiteBrand,
+    required this.freeApps,
+    required this.migrations,
   });
+
+  @override
+  List<Object?> get props => [
+        id,
+        bundleId,
+        name,
+        description,
+        quantity,
+        quantityReal,
+        price,
+        duration,
+        isSelected,
+        isUnlimited,
+        pricePlanId,
+        isPopular,
+        isRecommended,
+        repurchase,
+        isRollover,
+        name2,
+        name3,
+        hasFreeApps,
+        hasFacebookFull,
+        hasInstagramFull,
+        hasFacebookPhoto,
+        hasInstagramPhoto,
+        facebookFullDesc,
+        groupName,
+        nameByte,
+        nameSecond,
+        nameSms,
+        isUnlimitedByte,
+        isUnlimitedSecond,
+        isUnlimitedSms,
+        quantityByte,
+        quantitySecond,
+        quantitySms,
+        bundleIds,
+        mediumSpeed,
+        mediumSpeedDescription,
+        whiteBrand,
+        freeApps,
+        migrations,
+      ];
 }
