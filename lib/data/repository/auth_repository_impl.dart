@@ -8,7 +8,7 @@ import 'package:cuy_flutter_dev/domain/repository/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-abstract class AuthRepositoryImpl implements AuthRepository {
+class AuthRepositoryImpl implements AuthRepository {
   final RemoteDataSource _remoteDataSource;
 
   AuthRepositoryImpl(this._remoteDataSource);

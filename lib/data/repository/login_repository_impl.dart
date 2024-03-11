@@ -8,7 +8,7 @@ import 'package:cuy_flutter_dev/domain/repository/login_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-abstract class LoginRepositoryImpl implements LoginRepository {
+class LoginRepositoryImpl implements LoginRepository {
   final RemoteDataSource _remoteDataSource;
 
   LoginRepositoryImpl(this._remoteDataSource);

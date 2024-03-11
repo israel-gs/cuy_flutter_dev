@@ -7,7 +7,7 @@ import 'package:cuy_flutter_dev/domain/repository/plans_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-abstract class PlansRepositoryImpl implements PlansRepository {
+class PlansRepositoryImpl implements PlansRepository {
   final RemoteDataSource _remoteDataSource;
 
   PlansRepositoryImpl(this._remoteDataSource);

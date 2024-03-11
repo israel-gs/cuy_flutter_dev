@@ -1,7 +1,7 @@
 import 'package:cuy_flutter_dev/data/data_sources/local_data_source.dart';
 import 'package:cuy_flutter_dev/domain/repository/token_repository.dart';
 
-abstract class TokenRepositoryImpl extends TokenRepository {
+class TokenRepositoryImpl extends TokenRepository {
   final LocalDataSource _localDataSource;
 
   TokenRepositoryImpl(this._localDataSource);
