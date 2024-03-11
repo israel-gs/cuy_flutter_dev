@@ -24,6 +24,16 @@ class PlansModel extends PlansEntity {
   String toString() {
     return 'PlansModel(code: $code, status: $status, message: $message, list: $list, appListFree: $appListFree)';
   }
+
+  PlansEntity toEntity() {
+    return PlansEntity(
+      code: super.code,
+      status: super.status,
+      message: super.message,
+      list: super.list,
+      appListFree: super.appListFree,
+    );
+  }
 }
 
 class ListElementModel extends ListElementEntity {

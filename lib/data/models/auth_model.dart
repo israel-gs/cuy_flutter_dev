@@ -16,4 +16,13 @@ class AuthModel extends AuthEntity {
       oauthToken: json['oauthToken'],
     );
   }
+
+  AuthEntity toEntity() {
+    return AuthEntity(
+      code: super.code,
+      status: super.status,
+      message: super.message,
+      oauthToken: super.oauthToken,
+    );
+  }
 }

@@ -20,6 +20,17 @@ class LoginModel extends LoginEntity {
       data: DataModel.fromJson(json['data']),
     );
   }
+
+  LoginEntity toEntity() {
+    return LoginEntity(
+      code: super.code,
+      status: super.status,
+      message: super.message,
+      oauthToken: super.oauthToken,
+      oauthTokenExpiresAt: super.oauthTokenExpiresAt,
+      data: super.data,
+    );
+  }
 }
 
 class DataModel extends DataEntity {
