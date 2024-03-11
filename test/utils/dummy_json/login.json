@@ -1,0 +1,40 @@
+{
+  "code": "success",
+  "status": "success",
+  "message": "Has iniciado sesión correctamente",
+  "oauthToken": "user_sk_test_brand1-3u2pNiBpOAvqAytfG9OSK5lgBp3Z8lfarYDZjGND2M1TUAP",
+  "oauthTokenExpiresAt": 1710965944620,
+  "data": {
+    "id": 3,
+    "name": "Demo",
+    "lastNameFather": "Demo",
+    "lastNameMother": "Demo",
+    "lastName": "Demo Demo",
+    "fullName": "Demo Demo Demo",
+    "email": "demo@cuy.pe",
+    "dni": "11111111",
+    "userIdentificationType": 1,
+    "businessName": "",
+    "address": "aaaaa",
+    "birthday": "",
+    "referralCode": "aaaaaaaaaa",
+    "referralUrl": "https://secure.cuy.pe?referralCode=aaaaaaaaaa",
+    "zohoId": "3292970000012610247",
+    "photo": "",
+    "hasPhoto": false,
+    "loggedWithPhone": "",
+    "loggedWithDni": "",
+    "region": "",
+    "isTourist": false,
+    "whiteBrand": 1,
+    "company": {
+      "id": 0,
+      "ruc": "",
+      "businessName": "",
+      "role": {
+        "id": 0,
+        "name": ""
+      }
+    }
+  }
+}
