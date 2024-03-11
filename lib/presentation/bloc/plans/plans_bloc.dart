@@ -35,11 +35,7 @@ class PlansBloc extends Bloc<PlansEvent, PlansState> {
     result.fold(
       (failure) => emit(PlansFailure(failure.message)),
       (success) async {
-        if (success.list == null || success.list!.isEmpty) {
-          emit(const PlansFailure('Data not found'));
-        } else {
-          emit(PlansSuccess(success.list!));
-        }
+        emit(PlansSuccess(success.list));
       },
     );
   }

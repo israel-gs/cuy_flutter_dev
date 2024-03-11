@@ -37,11 +37,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     result.fold(
       (failure) => emit(LoginFailure(failure.message)),
       (success) async {
-        if (success.data == null) {
-          emit(const LoginFailure('Data not found'));
-        } else {
-          emit(LoginSuccess(success.data!));
-        }
+        emit(LoginSuccess(success.data));
       },
     );
   }

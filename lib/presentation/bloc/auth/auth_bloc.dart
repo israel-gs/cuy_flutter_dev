@@ -26,12 +26,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     result.fold(
       (failure) => emit(AuthFailure(failure.message)),
       (success) async {
-        if (success.oauthToken == null) {
-          emit(const AuthFailure('Token not found'));
-        } else {
-          await _saveTokenUseCase.call(token: success.oauthToken!);
-          emit(AuthSuccess(success.oauthToken!));
-        }
+        await _saveTokenUseCase.call(token: success.oauthToken);
+        emit(AuthSuccess(success.oauthToken));
       },
     );
   }
