@@ -27,7 +27,6 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_currentIndex == 0 ? 'Planes' : 'Información'),
         actions: [
           IconButton(
             onPressed: () {},
