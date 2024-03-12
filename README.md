@@ -1,16 +1,17 @@
 # cuy_flutter_dev
 
-A new Flutter project.
+Flutter project for Guinea Mobile Flutter Developer
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Run the following command to generate annotations for the project:
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub run build_runner build
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Run the following command to generate .arb files for the project:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter gen-l10n
+```
