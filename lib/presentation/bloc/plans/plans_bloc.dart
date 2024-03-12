@@ -30,7 +30,7 @@ class PlansBloc extends Bloc<PlansEvent, PlansState> {
       emit(const PlansFailure('Token not found'));
       return;
     }
-
+    // TODO: Cache result and return it if it's not expired
     final result = await _getActivePlansUseCase.call(
       authorization: 'Cuy-oauthtoken $token',
     );
