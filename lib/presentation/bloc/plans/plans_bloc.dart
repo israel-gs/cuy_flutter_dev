@@ -18,7 +18,10 @@ class PlansBloc extends Bloc<PlansEvent, PlansState> {
     on<PlansStarted>(_onPlansStarted);
   }
 
-  void _onPlansStarted(PlansStarted event, Emitter<PlansState> emit) async {
+  Future<void> _onPlansStarted(
+    PlansStarted event,
+    Emitter<PlansState> emit,
+  ) async {
     emit(PlansLoading());
 
     String? token = await _getTokenUseCase.call();

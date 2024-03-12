@@ -17,14 +17,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthStarted>(_onAuthStarted);
   }
 
-  void _onAuthStarted(AuthStarted event, Emitter<AuthState> emit) async {
+  Future<void> _onAuthStarted(
+    AuthStarted event,
+    Emitter<AuthState> emit,
+  ) async {
     emit(AuthLoading());
     final result = await _postAuthUseCase.call(
       email: event.email,
       password: event.password,
     );
-    result.fold(
-      (failure) => emit(AuthFailure(failure.message)),
+    await result.fold(
+      (failure) async {
+        emit(AuthFailure(failure.message));
+      },
       (success) async {
         await _saveTokenUseCase.call(token: success.oauthToken);
         emit(AuthSuccess(success.oauthToken));

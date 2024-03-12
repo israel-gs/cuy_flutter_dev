@@ -1,18 +1,10 @@
 part of 'plans_bloc.dart';
 
 sealed class PlansState extends Equatable {
-  final List<ListElementEntity?>? plans;
-  final String? errorMessage;
-
-  const PlansState({
-    this.plans,
-    this.errorMessage,
-  });
+  const PlansState();
 
   @override
-  List<Object> get props => [
-        plans!,
-      ];
+  List<Object> get props => [];
 }
 
 final class PlansInitial extends PlansState {}
@@ -20,15 +12,17 @@ final class PlansInitial extends PlansState {}
 final class PlansLoading extends PlansState {}
 
 final class PlansSuccess extends PlansState {
-  const PlansSuccess(List<ListElementEntity?> plans) : super(plans: plans);
+  final List<ListElementEntity> plans;
+  const PlansSuccess(this.plans);
 
   @override
-  List<Object> get props => [plans!];
+  List<Object> get props => [plans];
 }
 
 final class PlansFailure extends PlansState {
-  const PlansFailure(String errorMessage) : super(errorMessage: errorMessage);
+  final String errorMessage;
+  const PlansFailure(this.errorMessage);
 
   @override
-  List<Object> get props => [errorMessage!];
+  List<Object> get props => [errorMessage];
 }

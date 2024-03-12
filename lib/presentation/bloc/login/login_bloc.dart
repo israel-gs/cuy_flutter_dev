@@ -18,7 +18,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginStarted>(_onLoginStarted);
   }
 
-  void _onLoginStarted(LoginStarted event, Emitter<LoginState> emit) async {
+  Future<void> _onLoginStarted(
+    LoginStarted event,
+    Emitter<LoginState> emit,
+  ) async {
     emit(LoginLoading());
 
     String? token = await _getTokenUseCase.call();
@@ -35,9 +38,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     );
 
     result.fold(
-      (failure) => emit(LoginFailure(failure.message)),
-      (success) async {
-        emit(LoginSuccess(success.data));
+      (failure) {
+        emit(LoginFailure(failure.message));
+      },
+      (success) {
+        emit(LoginSuccess(success));
       },
     );
   }

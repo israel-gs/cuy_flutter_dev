@@ -1,19 +1,10 @@
 part of 'login_bloc.dart';
 
 sealed class LoginState extends Equatable {
-  final DataEntity? dataEntity;
-  final String? errorMessage;
-
-  const LoginState({
-    this.dataEntity,
-    this.errorMessage,
-  });
+  const LoginState();
 
   @override
-  List<Object> get props => [
-        dataEntity!,
-        errorMessage!,
-      ];
+  List<Object> get props => [];
 }
 
 final class LoginInitial extends LoginState {}
@@ -21,15 +12,17 @@ final class LoginInitial extends LoginState {}
 final class LoginLoading extends LoginState {}
 
 final class LoginSuccess extends LoginState {
-  const LoginSuccess(DataEntity dataEntity) : super(dataEntity: dataEntity);
+  final LoginEntity loginEntity;
+  const LoginSuccess(this.loginEntity);
 
   @override
-  List<Object> get props => [dataEntity!];
+  List<Object> get props => [loginEntity];
 }
 
 final class LoginFailure extends LoginState {
-  const LoginFailure(String errorMessage) : super(errorMessage: errorMessage);
+  final String errorMessage;
+  const LoginFailure(this.errorMessage);
 
   @override
-  List<Object> get props => [errorMessage!];
+  List<Object> get props => [errorMessage];
 }
