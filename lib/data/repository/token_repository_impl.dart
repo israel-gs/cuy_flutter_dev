@@ -8,7 +8,7 @@ class TokenRepositoryImpl extends TokenRepository {
 
   @override
   Future<String?> getToken() async {
-    return _localDataSource.getToken();
+    return await _localDataSource.getToken();
   }
 
   @override
