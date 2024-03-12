@@ -44,6 +44,8 @@ dev_dependencies:
 
   http_mock_adapter: ^0.6.1
 
+  bloc_test: ^9.1.2
+
 flutter:
 
   uses-material-design: true
