@@ -15,3 +15,7 @@ Run the following command to generate .arb files for the project:
 ```bash
 flutter gen-l10n
 ```
+
+## Images
+
+![974shots_so](https://github.com/israel-gs/cuy_flutter_dev/assets/19498115/284b13ae-69ce-4d85-b40d-5ba277c37c5a)
