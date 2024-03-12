@@ -6,6 +6,8 @@ import 'package:cuy_flutter_dev/presentation/bloc/login/login_bloc.dart';
 import 'package:cuy_flutter_dev/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   await init();
@@ -36,6 +38,16 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRoutes.onGenerateRoutes,
         home: const LoginPage(),
+        supportedLocales: const [
+          Locale('en'),
+          Locale('es'),
+        ],
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
       ),
     );
   }

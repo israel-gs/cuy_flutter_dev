@@ -1,5 +1,6 @@
 import 'package:cuy_flutter_dev/config/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlanCardWidget extends StatelessWidget {
@@ -48,7 +49,7 @@ class PlanCardWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Duracion: $duration dias',
+                      '${AppLocalizations.of(context)?.duration ?? ''}: $duration ${AppLocalizations.of(context)?.days ?? ''}',
                       style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
@@ -89,17 +90,17 @@ class PlanCardWidget extends StatelessWidget {
               ),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: const Row(
+            child: Row(
               children: [
                 Text(
-                  'Ver más detalle',
-                  style: TextStyle(
+                  AppLocalizations.of(context)?.viewMore ?? '',
+                  style: const TextStyle(
                     fontSize: 16,
                     color: primaryColor,
                   ),
                 ),
-                Spacer(),
-                FaIcon(
+                const Spacer(),
+                const FaIcon(
                   FontAwesomeIcons.chevronRight,
                   color: primaryColor,
                   size: 13,

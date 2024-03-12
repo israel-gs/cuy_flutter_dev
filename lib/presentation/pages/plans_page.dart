@@ -3,6 +3,7 @@ import 'package:cuy_flutter_dev/presentation/bloc/plans/plans_bloc.dart';
 import 'package:cuy_flutter_dev/presentation/widgets/plan_card_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PlansPage extends StatelessWidget {
   const PlansPage({super.key});
@@ -26,7 +27,7 @@ class PlansPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildTitle(),
+                    _buildTitle(context),
                     const SizedBox(height: 20),
                     ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
@@ -65,10 +66,10 @@ class PlansPage extends StatelessWidget {
     );
   }
 
-  _buildTitle() {
-    return const Text(
-      'Tu nuevo plan',
-      style: TextStyle(
+  _buildTitle(BuildContext context) {
+    return Text(
+      AppLocalizations.of(context)?.yourNewPlan ?? '',
+      style: const TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w900,
       ),

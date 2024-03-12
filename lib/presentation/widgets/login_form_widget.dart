@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginFormWidget extends StatefulWidget {
   final Function(String, String) onLoginPressed;
@@ -30,15 +31,16 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             onChanged: (value) {
               email = value;
             },
-            decoration: const InputDecoration(
-              labelText: 'Correo electrónico',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)?.email ?? '',
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese su correo electrónico';
+                return AppLocalizations.of(context)?.pleaseEnterEmail ?? '';
               }
               if (!emailRegex.hasMatch(value)) {
-                return 'Por favor, ingrese un correo electrónico válido';
+                return AppLocalizations.of(context)?.pleaseEnterValidEmail ??
+                    '';
               }
               return null;
             },
@@ -49,13 +51,13 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             onChanged: (value) {
               password = value;
             },
-            decoration: const InputDecoration(
-              labelText: 'Contraseña',
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)?.password ?? '',
             ),
             obscureText: true,
             validator: (value) {
               if (value == null || value.isEmpty) {
-                return 'Por favor, ingrese su contraseña';
+                return AppLocalizations.of(context)?.pleaseEnterPassword ?? '';
               }
               return null;
             },
@@ -70,9 +72,9 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                       widget.onLoginPressed(email, password);
                     }
                   },
-            child: const Text(
-              'Iniciar sesión',
-              style: TextStyle(
+            child: Text(
+              AppLocalizations.of(context)?.login ?? '',
+              style: const TextStyle(
                 fontSize: 16,
                 color: Colors.white,
               ),

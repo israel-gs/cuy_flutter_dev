@@ -1,0 +1,17 @@
+{
+  "welcomeBack": "Bienvenido de nuevo",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "login": "Iniciar sesión",
+  "pleaseEnterEmail": "Por favor, ingrese su correo electrónico",
+  "pleaseEnterValidEmail": "Por favor, ingrese un correo electrónico válido",
+  "pleaseEnterPassword": "Por favor, ingrese su contraseña",
+  "yourNewPlan": "Tu nuevo plan",
+  "duration": "Duración",
+  "viewMore": "Ver más detalle",
+  "plans": "Planes",
+  "info": "Información",
+  "days": "días",
+  "deviceInformation": "Información del dispositivo",
+  "getDeviceInformation": "Obtener información"
+}

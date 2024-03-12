@@ -4,6 +4,7 @@ import 'package:cuy_flutter_dev/presentation/widgets/login_form_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -23,7 +24,7 @@ class LoginPage extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildTitle(),
+                  _buildTitle(context),
                   const SizedBox(height: 80),
                   BlocBuilder<LoginBloc, LoginState>(
                     builder: (context, state) {
@@ -78,11 +79,11 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  _buildTitle() {
-    return const Text(
-      'Bienvenido de vuelta',
+  _buildTitle(BuildContext context) {
+    return Text(
+      AppLocalizations.of(context)?.welcomeBack ?? '',
       textAlign: TextAlign.center,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 40,
         fontWeight: FontWeight.bold,
         color: Color(0xFF4A4A4A),

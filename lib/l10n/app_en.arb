@@ -1,0 +1,62 @@
+{
+  "welcomeBack": "Welcome back",
+  "@welcomeBack": {
+    "description": "Welcome back message"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password label"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login button"
+  },
+  "pleaseEnterEmail": "Please enter your email",
+  "@pleaseEnterEmail": {
+    "description": "Please enter your email message"
+  },
+  "pleaseEnterValidEmail": "Please enter a valid email",
+  "@pleaseEnterValidEmail": {
+    "description": "Please enter a valid email message"
+  },
+  "pleaseEnterPassword": "Please enter your password",
+  "@pleaseEnterPassword": {
+    "description": "Please enter your password message"
+  },
+  "yourNewPlan": "Your new plan",
+  "@yourNewPlan": {
+    "description": "Your new plan message"
+  },
+  "duration": "Duration",
+  "@duration": {
+    "description": "Duration label"
+  },
+  "viewMore": "View more",
+  "@viewMore": {
+    "description": "View more button"
+  },
+  "plans": "Plans",
+  "@plans": {
+    "description": "Plans label"
+  },
+  "info": "Info",
+  "@info": {
+    "description": "Info label"
+  },
+  "days": "days",
+  "@days": {
+    "description": "Days label"
+  },
+  "deviceInformation": "Device information",
+  "@deviceInformation": {
+    "description": "Device information label"
+  },
+  "getDeviceInformation": "Get device information",
+  "@getDeviceInformation": {
+    "description": "Get device information button"
+  }
+}

@@ -2,6 +2,7 @@ import 'package:cuy_flutter_dev/core/util/device_info_util.dart';
 import 'package:cuy_flutter_dev/presentation/widgets/device_info_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DeviceInfoPage extends StatefulWidget {
   const DeviceInfoPage({super.key});
@@ -19,14 +20,14 @@ class _DeviceInfoPageState extends State<DeviceInfoPage> {
       padding: const EdgeInsets.symmetric(horizontal: 38),
       child: Column(
         children: [
-          _buildTitle(),
+          _buildTitle(context),
           const SizedBox(height: 20),
           if (deviceInfoFuture == null)
             ElevatedButton(
               onPressed: _getDeviceInfo,
-              child: const Text(
-                'Obtener información',
-                style: TextStyle(
+              child: Text(
+                AppLocalizations.of(context)?.getDeviceInformation ?? '',
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.white,
                 ),
@@ -76,10 +77,10 @@ class _DeviceInfoPageState extends State<DeviceInfoPage> {
     );
   }
 
-  _buildTitle() {
-    return const Text(
-      'Información del dispositivo',
-      style: TextStyle(
+  _buildTitle(BuildContext context) {
+    return Text(
+      AppLocalizations.of(context)?.deviceInformation ?? '',
+      style: const TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.w900,
       ),
