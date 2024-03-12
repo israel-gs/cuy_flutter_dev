@@ -7,12 +7,12 @@ import 'dart:async' as _i5;
 
 import 'package:cuy_flutter_dev/core/error/failure.dart' as _i6;
 import 'package:cuy_flutter_dev/data/data_sources/remote_data_source.dart'
-    as _i13;
-import 'package:cuy_flutter_dev/data/models/auth_model.dart' as _i14;
-import 'package:cuy_flutter_dev/data/models/auth_request_model.dart' as _i15;
-import 'package:cuy_flutter_dev/data/models/login_model.dart' as _i16;
-import 'package:cuy_flutter_dev/data/models/login_request_model.dart' as _i17;
-import 'package:cuy_flutter_dev/data/models/plans_model.dart' as _i18;
+    as _i18;
+import 'package:cuy_flutter_dev/data/models/auth_model.dart' as _i19;
+import 'package:cuy_flutter_dev/data/models/auth_request_model.dart' as _i20;
+import 'package:cuy_flutter_dev/data/models/login_model.dart' as _i21;
+import 'package:cuy_flutter_dev/data/models/login_request_model.dart' as _i22;
+import 'package:cuy_flutter_dev/data/models/plans_model.dart' as _i23;
 import 'package:cuy_flutter_dev/domain/entities/auth_entity.dart' as _i7;
 import 'package:cuy_flutter_dev/domain/entities/login_entity.dart' as _i9;
 import 'package:cuy_flutter_dev/domain/entities/plans_entity.dart' as _i11;
@@ -22,6 +22,14 @@ import 'package:cuy_flutter_dev/domain/repository/plans_repository.dart'
     as _i10;
 import 'package:cuy_flutter_dev/domain/repository/token_repository.dart'
     as _i12;
+import 'package:cuy_flutter_dev/domain/usecases/get_active_plans_usecase.dart'
+    as _i13;
+import 'package:cuy_flutter_dev/domain/usecases/get_token_usecase.dart' as _i14;
+import 'package:cuy_flutter_dev/domain/usecases/post_auth_usecase.dart' as _i15;
+import 'package:cuy_flutter_dev/domain/usecases/post_login_usecase.dart'
+    as _i17;
+import 'package:cuy_flutter_dev/domain/usecases/save_token_usecase.dart'
+    as _i16;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:retrofit/retrofit.dart' as _i3;
@@ -195,20 +203,166 @@ class MockTokenRepository extends _i1.Mock implements _i12.TokenRepository {
       ) as _i5.Future<void>);
 }
 
+/// A class which mocks [GetActivePlansUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetActivePlansUseCase extends _i1.Mock
+    implements _i13.GetActivePlansUseCase {
+  MockGetActivePlansUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<_i2.Either<_i6.Failure, _i11.PlansEntity>> call(
+          {required String? authorization}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#authorization: authorization},
+        ),
+        returnValue:
+            _i5.Future<_i2.Either<_i6.Failure, _i11.PlansEntity>>.value(
+                _FakeEither_0<_i6.Failure, _i11.PlansEntity>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+            {#authorization: authorization},
+          ),
+        )),
+      ) as _i5.Future<_i2.Either<_i6.Failure, _i11.PlansEntity>>);
+}
+
+/// A class which mocks [GetTokenUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetTokenUseCase extends _i1.Mock implements _i14.GetTokenUseCase {
+  MockGetTokenUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<String?> call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue: _i5.Future<String?>.value(),
+      ) as _i5.Future<String?>);
+}
+
+/// A class which mocks [PostAuthUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockPostAuthUseCase extends _i1.Mock implements _i15.PostAuthUseCase {
+  MockPostAuthUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<_i2.Either<_i6.Failure, _i7.AuthEntity>> call({
+    required String? email,
+    required String? password,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {
+            #email: email,
+            #password: password,
+          },
+        ),
+        returnValue: _i5.Future<_i2.Either<_i6.Failure, _i7.AuthEntity>>.value(
+            _FakeEither_0<_i6.Failure, _i7.AuthEntity>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+            {
+              #email: email,
+              #password: password,
+            },
+          ),
+        )),
+      ) as _i5.Future<_i2.Either<_i6.Failure, _i7.AuthEntity>>);
+}
+
+/// A class which mocks [SaveTokenUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSaveTokenUseCase extends _i1.Mock implements _i16.SaveTokenUseCase {
+  MockSaveTokenUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<void> call({required String? token}) => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {#token: token},
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+}
+
+/// A class which mocks [PostLoginUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockPostLoginUseCase extends _i1.Mock implements _i17.PostLoginUseCase {
+  MockPostLoginUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<_i2.Either<_i6.Failure, _i9.LoginEntity>> call({
+    required String? authorization,
+    required String? emailOrPhone,
+    required String? password,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+          {
+            #authorization: authorization,
+            #emailOrPhone: emailOrPhone,
+            #password: password,
+          },
+        ),
+        returnValue: _i5.Future<_i2.Either<_i6.Failure, _i9.LoginEntity>>.value(
+            _FakeEither_0<_i6.Failure, _i9.LoginEntity>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+            {
+              #authorization: authorization,
+              #emailOrPhone: emailOrPhone,
+              #password: password,
+            },
+          ),
+        )),
+      ) as _i5.Future<_i2.Either<_i6.Failure, _i9.LoginEntity>>);
+}
+
 /// A class which mocks [RemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
+class MockRemoteDataSource extends _i1.Mock implements _i18.RemoteDataSource {
   @override
-  _i5.Future<_i3.HttpResponse<_i14.AuthModel>> auth(
-          _i15.AuthRequestModel? authRequestModel) =>
+  _i5.Future<_i3.HttpResponse<_i19.AuthModel>> auth(
+          _i20.AuthRequestModel? authRequestModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #auth,
           [authRequestModel],
         ),
-        returnValue: _i5.Future<_i3.HttpResponse<_i14.AuthModel>>.value(
-            _FakeHttpResponse_1<_i14.AuthModel>(
+        returnValue: _i5.Future<_i3.HttpResponse<_i19.AuthModel>>.value(
+            _FakeHttpResponse_1<_i19.AuthModel>(
           this,
           Invocation.method(
             #auth,
@@ -216,20 +370,20 @@ class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
           ),
         )),
         returnValueForMissingStub:
-            _i5.Future<_i3.HttpResponse<_i14.AuthModel>>.value(
-                _FakeHttpResponse_1<_i14.AuthModel>(
+            _i5.Future<_i3.HttpResponse<_i19.AuthModel>>.value(
+                _FakeHttpResponse_1<_i19.AuthModel>(
           this,
           Invocation.method(
             #auth,
             [authRequestModel],
           ),
         )),
-      ) as _i5.Future<_i3.HttpResponse<_i14.AuthModel>>);
+      ) as _i5.Future<_i3.HttpResponse<_i19.AuthModel>>);
 
   @override
-  _i5.Future<_i3.HttpResponse<_i16.LoginModel>> login(
+  _i5.Future<_i3.HttpResponse<_i21.LoginModel>> login(
     String? authorization,
-    _i17.LoginRequestModel? loginRequestModel,
+    _i22.LoginRequestModel? loginRequestModel,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -239,8 +393,8 @@ class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
             loginRequestModel,
           ],
         ),
-        returnValue: _i5.Future<_i3.HttpResponse<_i16.LoginModel>>.value(
-            _FakeHttpResponse_1<_i16.LoginModel>(
+        returnValue: _i5.Future<_i3.HttpResponse<_i21.LoginModel>>.value(
+            _FakeHttpResponse_1<_i21.LoginModel>(
           this,
           Invocation.method(
             #login,
@@ -251,8 +405,8 @@ class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
           ),
         )),
         returnValueForMissingStub:
-            _i5.Future<_i3.HttpResponse<_i16.LoginModel>>.value(
-                _FakeHttpResponse_1<_i16.LoginModel>(
+            _i5.Future<_i3.HttpResponse<_i21.LoginModel>>.value(
+                _FakeHttpResponse_1<_i21.LoginModel>(
           this,
           Invocation.method(
             #login,
@@ -262,10 +416,10 @@ class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
             ],
           ),
         )),
-      ) as _i5.Future<_i3.HttpResponse<_i16.LoginModel>>);
+      ) as _i5.Future<_i3.HttpResponse<_i21.LoginModel>>);
 
   @override
-  _i5.Future<_i3.HttpResponse<_i18.PlansModel>> getActivePlans({
+  _i5.Future<_i3.HttpResponse<_i23.PlansModel>> getActivePlans({
     required String? authorization,
     required String? sort,
     required bool? isActive,
@@ -280,8 +434,8 @@ class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
             #isActive: isActive,
           },
         ),
-        returnValue: _i5.Future<_i3.HttpResponse<_i18.PlansModel>>.value(
-            _FakeHttpResponse_1<_i18.PlansModel>(
+        returnValue: _i5.Future<_i3.HttpResponse<_i23.PlansModel>>.value(
+            _FakeHttpResponse_1<_i23.PlansModel>(
           this,
           Invocation.method(
             #getActivePlans,
@@ -294,8 +448,8 @@ class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
           ),
         )),
         returnValueForMissingStub:
-            _i5.Future<_i3.HttpResponse<_i18.PlansModel>>.value(
-                _FakeHttpResponse_1<_i18.PlansModel>(
+            _i5.Future<_i3.HttpResponse<_i23.PlansModel>>.value(
+                _FakeHttpResponse_1<_i23.PlansModel>(
           this,
           Invocation.method(
             #getActivePlans,
@@ -307,5 +461,5 @@ class MockRemoteDataSource extends _i1.Mock implements _i13.RemoteDataSource {
             },
           ),
         )),
-      ) as _i5.Future<_i3.HttpResponse<_i18.PlansModel>>);
+      ) as _i5.Future<_i3.HttpResponse<_i23.PlansModel>>);
 }
