@@ -16,8 +16,8 @@ class LoginFormWidget extends StatefulWidget {
 class _LoginFormWidgetState extends State<LoginFormWidget> {
   final formKey = GlobalKey<FormState>();
   final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-  String email = '';
-  String password = '';
+  String email = 'demo@cuy.pe';
+  String password = '12345678';
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
       child: Column(
         children: [
           TextFormField(
+            initialValue: email,
             onChanged: (value) {
               email = value;
             },
@@ -44,6 +45,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           ),
           const SizedBox(height: 20),
           TextFormField(
+            initialValue: password,
             onChanged: (value) {
               password = value;
             },
@@ -63,6 +65,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             onPressed: widget.loading
                 ? null
                 : () {
+                    FocusScope.of(context).unfocus();
                     if (formKey.currentState!.validate()) {
                       widget.onLoginPressed(email, password);
                     }
