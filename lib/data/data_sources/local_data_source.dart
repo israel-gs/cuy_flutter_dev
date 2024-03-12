@@ -5,7 +5,7 @@ class LocalDataSource {
     await SharedPreferencesUtil.setData('token', token);
   }
 
-  String? getToken() {
-    return SharedPreferencesUtil.getData('token') as String?;
+  Future<String?> getToken() async {
+    return await SharedPreferencesUtil.getData('token') as String?;
   }
 }
